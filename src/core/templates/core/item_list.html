@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto mt-10">
+    <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Items</h1>
+    <ul class="bg-white shadow rounded-lg divide-y divide-gray-200">
+        {% for item in items %}
+        <li class="px-6 py-4 flex justify-between items-center">
+            <span class="text-lg text-gray-700 font-medium">{{ item.name }}</span>
+            <span class="text-sm text-gray-500">{{ item.created_at|date:"d/m/Y" }}</span>
+            <span class="text-sm text-gray-500">{{ item.description }}</span>
+        </li>
+        {% empty %}
+        <li class="px-6 py-4 text-center text-gray-400">No items available.</li>
+        {% endfor %}
+    </ul>
+
+
+    <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded">Agregar Item</button>
+</div>
+{% endblock %}
